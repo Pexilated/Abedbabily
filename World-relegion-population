@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Religions Treemap</title>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+  <div id="treemap" style="width:100%;height:100vh;"></div>
+
+  <script>
+    const data = [{
+      type: "treemap",
+      branchvalues: "total",
+      labels: [
+        "Buddhism","Christianity","Hinduism","Islam","Judaism",
+        "India","China","United States","Indonesia","Brazil"
+      ],
+      parents: [
+        "","", "", "", "",
+        "Hinduism","Buddhism","Christianity","Islam","Christianity"
+      ],
+      values: [
+        200,157,1004,186,6,
+        1040,244,219,229,169
+      ],
+      marker: {
+        colorscale: "Viridis"
+      }
+    }];
+
+    const layout = {
+      title: "World Religions by Country"
+    };
+
+    Plotly.newPlot("treemap", data, layout, { responsive: true });
+  </script>
+</body>
+</html>
